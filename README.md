@@ -149,13 +149,9 @@ Plan: 2 to add, 0 to change, 0 to destroy.
 
 3️⃣ Apply Infrastructure
 ```
-bash
-Copy code
 terraform apply
 ```
 ```
-yaml
-Copy code
 Terraform used the selected providers to generate the following execution plan.     
 Resource actions are indicated with the following symbols:
   + create
@@ -240,15 +236,9 @@ Open your browser at http://localhost:8080 — you should see the default NGINX 
 
 5️⃣ Destroy Infrastructure
 ```
-bash
-Copy code
 terraform destroy
 ```
 ```
-yaml
-Copy code
-
-
 Terraform used the selected providers to generate the following execution plan.     
 Resource actions are indicated with the following symbols:
   - destroy
