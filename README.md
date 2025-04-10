@@ -23,7 +23,27 @@ Provision a local Docker container using Terraform to understand the basics of I
 1. **Initialized Terraform:**
    ```bash
    terraform init
-Reviewed the execution plan:
+   ```
+   ```output
+      Initializing the backend...
+```
+Initializing provider plugins...
+- Reusing previous version of kreuzwerker/docker from the dependency lock file
+- Using previously-installed kreuzwerker/docker v3.0.2
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other     
+commands will detect it and remind you to do so if necessary.
+```
+
+
+2. Reviewed the execution plan:
 
 bash
 Copy code
