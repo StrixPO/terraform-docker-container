@@ -59,29 +59,29 @@ resource "docker_container" "nginx" {
 bash
 Copy code
 terraform init
-📄 Paste the output here:
-
-bash
-Copy code
-Initializing the backend...
-Initializing provider plugins...
-- Reusing previous version of kreuzwerker/docker from the dependency lock file
-- Using previously-installed kreuzwerker/docker v3.0.2
-
-Terraform has been successfully initialized!
-
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
-
+```
+  bash
+  Copy code
+  Initializing the backend...
+  Initializing provider plugins...
+  - Reusing previous version of kreuzwerker/docker from the dependency lock file
+  - Using previously-installed kreuzwerker/docker v3.0.2
+  
+  Terraform has been successfully initialized!
+  
+  You may now begin working with Terraform. Try running "terraform plan" to see
+  any changes that are required for your infrastructure. All Terraform commands
+  should now work.
 ...
+
 Terraform has been successfully initialized!
+```
 2️⃣ Terraform Execution Plan
+
 bash
 Copy code
 terraform plan
-📄 Paste the output here:
-
+```
 Terraform used the selected providers to generate the following execution plan.     
 Resource actions are indicated with the following symbols:
   + create
@@ -145,13 +145,15 @@ Terraform will perform the following actions:
     }
 
 Plan: 2 to add, 0 to change, 0 to destroy.
+```
 
 3️⃣ Apply Infrastructure
+```
 bash
 Copy code
 terraform apply
-📄 Paste the output here:
-
+```
+```
 yaml
 Copy code
 Terraform used the selected providers to generate the following execution plan.     
@@ -231,21 +233,21 @@ docker_container.nginx: Creating...
 docker_container.nginx: Creation complete after 2s [id=3fd44a037fd4170d65f6b719b35faaa1fa7340456c45c43ac063484500077b21]
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+```
 
 4️⃣ Access the NGINX App
 Open your browser at http://localhost:8080 — you should see the default NGINX welcome page.
 
 5️⃣ Destroy Infrastructure
+```
 bash
 Copy code
 terraform destroy
-📄 Paste the output here:
-
+```
+```
 yaml
 Copy code
-# 👉 Example
-docker_image.nginx: Refreshing state... [id=sha256:09369da6b10306312cd908661320086bf87fbae1b6b0c49a1f50ba531fef2eabnginx:latest]
-docker_container.nginx: Refreshing state... [id=3fd44a037fd4170d65f6b719b35faaa1fa7340456c45c43ac063484500077b21]
+
 
 Terraform used the selected providers to generate the following execution plan.     
 Resource actions are indicated with the following symbols:
@@ -348,13 +350,13 @@ docker_image.nginx: Destroying... [id=sha256:09369da6b10306312cd908661320086bf87
 docker_image.nginx: Destruction complete after 2s
 
 Destroy complete! Resources: 2 destroyed.
-
+```
 ✅ Key Concepts Practiced
-Terraform Basics & Commands (init, plan, apply, destroy)
+- Terraform Basics & Commands (init, plan, apply, destroy)
 
-Provider Configuration (kreuzwerker/docker)
+- Provider Configuration (kreuzwerker/docker)
 
-Resource Provisioning (docker_image, docker_container)
+-Resource Provisioning (docker_image, docker_container)
 
 Terraform State Management
 
