@@ -15,10 +15,22 @@ resource "docker_image" "nginx" {
 }
 
 resource "docker_container" "nginx" {
-  name  = "nginx_server"
+  name  = var.container_name
   image = docker_image.nginx.name
   ports {
     internal = 80
-    external = 8080
+    external = var.external_port
   }
 }
+
+resource "docker_image" "alpine" {
+  name         = "alpine:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "alpine" {
+  name    = "alpine_debug"
+  image   = docker_image.alpine.name
+  command = ["sleep", "3600"]
+}
+
