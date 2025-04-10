@@ -1,93 +1,122 @@
-# Task 3: Infrastructure as Code (IaC) with Terraform
+# 🚀 Task 3: Infrastructure as Code (IaC) with Terraform
 
-## 📌 Objective
-Provision a local Docker container using Terraform to understand the basics of Infrastructure as Code (IaC).
+## 🧠 Objective
 
----
-
-## 🧰 Tools & Technologies Used
-- **Terraform** v1.x
-- **Docker** (Local)
-- Terraform Docker Provider: `kreuzwerker/docker`
+Provision a local Docker container using **Terraform** to demonstrate the basics of Infrastructure as Code (IaC).
 
 ---
 
-## 🗂️ Files
-- `main.tf` — Terraform configuration for provisioning the container
-- `.gitignore` — Ignores Terraform state files and logs
+## 🛠️ Tools & Technologies
+
+- Terraform (v1.x)
+- Docker (Desktop, Local)
+- Terraform Docker Provider (`kreuzwerker/docker`)
 
 ---
 
-## 🚀 Steps Performed
+## 📂 Project Structure
 
-1. **Initialized Terraform:**
-   ```bash
-   terraform init
-   ```
-   ```output
-      Initializing the backend...
+. ├── main.tf # Terraform configuration file ├── .gitignore # Ignore Terraform state files and logs └── README.md # Project overview and documentation
+
+pgsql
+Copy code
+
+---
+
+## ⚙️ Terraform Configuration (`main.tf`)
+
+This project provisions an NGINX container running locally on port 8080.
+
+```hcl
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 3.0.2"
+    }
+  }
+}
+
+provider "docker" {}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "nginx" {
+  name  = "nginx_server"
+  image = docker_image.nginx.latest
+  ports {
+    internal = 80
+    external = 8080
+  }
+}
 ```
+
+🧪 Steps Performed
+1️⃣ Terraform Initialization
+bash
+Copy code
+terraform init
+📄 Paste the output here:
+
+bash
+Copy code
+# 👉 Example (replace with yours)
+Initializing the backend...
 Initializing provider plugins...
-- Reusing previous version of kreuzwerker/docker from the dependency lock file
-- Using previously-installed kreuzwerker/docker v3.0.2
-
+- Finding kreuzwerker/docker versions matching "3.0.2"...
+...
 Terraform has been successfully initialized!
-
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
-
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other     
-commands will detect it and remind you to do so if necessary.
-```
-
-
-2. Reviewed the execution plan:
-
+2️⃣ Terraform Execution Plan
 bash
 Copy code
 terraform plan
-Provisioned Docker Container:
+📄 Paste the output here:
 
+vbnet
+Copy code
+# 👉 Example
+Plan: 2 to add, 0 to change, 0 to destroy
+3️⃣ Apply Infrastructure
 bash
 Copy code
 terraform apply
-Pulled nginx:latest image
+📄 Paste the output here:
 
-Created a container named nginx_server
+yaml
+Copy code
+# 👉 Example
+docker_image.nginx: Creating...
+docker_container.nginx: Creating...
+Apply complete! Resources: 2 added.
+4️⃣ Access the NGINX App
+Open your browser at http://localhost:8080 — you should see the default NGINX welcome page.
 
-Exposed port 8080 mapped to internal port 80
-
-Tested Application:
-
-Accessed app via http://localhost:8080
-
-Verified NGINX was running
-
-Destroyed Infrastructure (Clean-up):
-
+5️⃣ Destroy Infrastructure
 bash
 Copy code
 terraform destroy
-📸 Screenshots / Logs
-Attached screenshots of:
+📄 Paste the output here:
 
-terraform apply
+yaml
+Copy code
+# 👉 Example
+Destroy complete! Resources: 2 destroyed.
+📸 Screenshots (Optional but Recommended)
+Screenshot of Docker Desktop showing the running container
 
-Running container in Docker Desktop
+Screenshot of the browser with the NGINX page
 
-Browser with NGINX welcome page
+Screenshot of terraform apply or terminal output
 
-Execution logs included as execution-log.txt
+✅ Key Concepts Practiced
+Terraform Basics & Commands (init, plan, apply, destroy)
 
-🧠 Key Concepts Learned
-What is Infrastructure as Code (IaC)
+Provider Configuration (kreuzwerker/docker)
 
-How to use Terraform to provision Docker containers
+Resource Provisioning (docker_image, docker_container)
 
-Importance of terraform plan, apply, and destroy
+Terraform State Management
 
-Terraform state management
-
-Declarative approach to infrastructure
