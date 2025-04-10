@@ -129,11 +129,9 @@ Terraform will perform the following actions:
 Destroy complete! Resources: 2 destroyed.
 ```
 ✅ Key Concepts Practiced
-- Terraform Basics & Commands (init, plan, apply, destroy)
-
-- Provider Configuration (kreuzwerker/docker)
-
--Resource Provisioning (docker_image, docker_container)
-
-Terraform State Management
+- Infrastructure as Code (IaC) with Terraform
+- Docker container provisioning
+- Use of Terraform providers, resources, variables, outputs
+- Clean separation of config files
+- Local testing and reproducibility
 
